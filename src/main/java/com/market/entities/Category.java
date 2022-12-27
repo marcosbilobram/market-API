@@ -1,15 +1,22 @@
-package com.market.domain;
+package com.market.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "tb_mkt_category")
 public class Category {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String description;
 	
-	private List<Product> products = new ArrayList<Product>();
+	//private List<Product> products = new ArrayList<Product>();
 
 	public Category(Integer id, String name, String description) {
 		super();
@@ -41,6 +48,14 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	/*public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	*/
 	
 }

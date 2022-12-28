@@ -20,6 +20,8 @@ public class Product implements Serializable {
 	private String description;
 	private Double price;
 	
+	//private List<Category> categories = new ArrayList<>();
+	
 	public Product() {
 	}
 

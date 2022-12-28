@@ -19,6 +19,9 @@ public class User implements Serializable{
 	private String name;
 	private String email;
 	
+	//Order order;
+	//maybe shopping cart
+	
 	public User() {
 	}
 	

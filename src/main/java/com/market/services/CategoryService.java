@@ -29,5 +29,15 @@ public class CategoryService {
 		categRepo.deleteById(id);
 	}
 	
+	public Category update(Category category) {
+		Category ctg = findById(category.getId());
+		dataUpdate(ctg, category);
+		return categRepo.save(ctg);
+	}
+	
+	public void dataUpdate(Category categToAtt, Category category) {
+		categToAtt.setName(category.getName());
+		categToAtt.setDescription(category.getDescription());
+	}
 	
 }

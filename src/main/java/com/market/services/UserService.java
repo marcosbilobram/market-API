@@ -1,4 +1,4 @@
-package com.market.application.services;
+package com.market.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,10 @@ public class UserService {
 		return user.get();
 	}
 	
-	
+	public void delete(Integer id) {
+		findById(id);
+		userRepo.deleteById(id);
+	}
 	
 	
 }

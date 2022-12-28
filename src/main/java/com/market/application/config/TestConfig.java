@@ -7,8 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.market.application.repositories.CategoryRepository;
-import com.market.application.repositories.ProductRepository;
 import com.market.application.repositories.UserRepository;
 import com.market.entities.User;
 
@@ -20,11 +18,11 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
+	/*@Autowired
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private CategoryRepository categoryRepository;
+	private CategoryRepository categoryRepository;*/
 
 	@Override
 	public void run(String... args) throws Exception {

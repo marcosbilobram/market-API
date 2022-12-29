@@ -29,6 +29,11 @@ public class UserService {
 		userRepo.deleteById(id);
 	}
 	
+	public User insert(User user) {
+		return userRepo.save(user);
+	}
+	
+	
 	public User update(User user) {
 		User usr = findById(user.getId());
 		dataUpdate(usr, user);

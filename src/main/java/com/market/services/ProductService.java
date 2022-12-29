@@ -29,6 +29,10 @@ public class ProductService {
 		prodctRepo.deleteById(id);
 	}
 	
+	public Product insert(Product product) {
+		return prodctRepo.save(product);
+	}
+	
 	public Product update(Product product) {
 		Product prod = findById(product.getId());
 		dataUpdate(prod, product);

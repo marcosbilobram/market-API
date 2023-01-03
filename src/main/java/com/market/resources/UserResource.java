@@ -13,7 +13,7 @@ import com.market.entities.User;
 import com.market.services.UserService;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping("/users")
 public class UserResource {
 	
 	@Autowired
@@ -32,5 +32,9 @@ public class UserResource {
 		
 	}
 	
+	/*@PutMapping
+	public ResponseEntity<Void> insert(User user){
+	}
+	*/
 	
 }

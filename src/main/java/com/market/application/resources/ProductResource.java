@@ -1,4 +1,4 @@
-package com.market.resources;
+package com.market.application.resources;
 
 import java.net.URI;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.market.entities.Product;
-import com.market.services.ProductService;
+import com.market.application.entities.Product;
+import com.market.application.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")

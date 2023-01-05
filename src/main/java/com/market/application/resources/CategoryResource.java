@@ -1,4 +1,4 @@
-package com.market.resources;
+package com.market.application.resources;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.market.entities.Category;
-import com.market.services.CategoryService;
+import com.market.application.entities.Category;
+import com.market.application.services.CategoryService;
 
 @RestController
 @RequestMapping(value = "/categories")

@@ -1,4 +1,4 @@
-package com.market.entities;
+package com.market.application.entities;
 
 import java.io.Serializable;
 

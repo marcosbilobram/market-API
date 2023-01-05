@@ -1,4 +1,4 @@
-package com.market.services;
+package com.market.application.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.market.application.repositories.UserRepository;
-import com.market.entities.User;
+import com.market.application.entities.User;
 
 @Service
 public class UserService {

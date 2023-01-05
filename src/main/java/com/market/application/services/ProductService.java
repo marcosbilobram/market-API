@@ -1,4 +1,4 @@
-package com.market.services;
+package com.market.application.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.market.application.repositories.ProductRepository;
-import com.market.entities.Product;
-import com.market.services.exceptions.ObjectNotFoundException;
+import com.market.application.entities.Product;
+import com.market.application.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ProductService {

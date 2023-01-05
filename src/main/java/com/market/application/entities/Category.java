@@ -1,4 +1,4 @@
-package com.market.entities;
+package com.market.application.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,10 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "tb_mkt_category")
-public class Category {
-	
+public class Category implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -17,6 +20,9 @@ public class Category {
 	private String description;
 	
 	//private List<Product> products = new ArrayList<Product>();
+
+	public Category(){
+	}
 
 	public Category(Integer id, String name, String description) {
 		super();

@@ -3,6 +3,7 @@ package com.market.application.config;
 import java.util.Arrays;
 
 import com.market.application.entities.Product;
+import com.market.application.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +20,9 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private UserRepository userRepository;
 	
-	/*@Autowired
+	@Autowired
 	private ProductRepository productRepository;
-	
+	/*
 	@Autowired
 	private CategoryRepository categoryRepository;*/
 
@@ -31,8 +32,9 @@ public class TestConfig implements CommandLineRunner{
 		User u1 = new User(1, "Marcos", "marcos@hotmail.com");
 		User u2 = new User(2, "Beatriz", "beatriz@hotmail.com");
 
-		Product product = new Product();
+		Product product = new Product(1,"Banana","Fruta", 2.0);
 		
 		userRepository.saveAll(Arrays.asList(u1,u2));
+		productRepository.save(product);
 	}
 }

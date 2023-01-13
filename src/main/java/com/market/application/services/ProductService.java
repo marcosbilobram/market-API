@@ -1,5 +1,6 @@
 package com.market.application.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,26 @@ public class ProductService {
 
 	public Product fromDTO(ProductDTO productDTO){
 		return new Product(productDTO.getId(), productDTO.getName(), productDTO.getDescription(),productDTO.getPrice());
+	}
+
+	public List<Product> findByName(String name){
+		String parseNM = name.toLowerCase();
+		List<Product> productIM = productRepo.findAll();
+		List<Product> productResp = new ArrayList();
+		try {
+			for (Product prd: productIM) {
+				if ((prd.getName().toLowerCase()).contains(parseNM)){
+					productResp.add(prd);
+				}
+			}
+		}
+		catch (ObjectNotFoundException e){
+			e.getMessage();
+		}
+		if (productResp.isEmpty()){
+			throw new ObjectNotFoundException("Produto não encontrado");
+		}
+		return productResp;
 	}
 	
 }

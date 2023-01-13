@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import com.market.application.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -53,5 +54,12 @@ public class ProductResource {
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		productService.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping(value = "/filter")
+	public ResponseEntity<List<ProductDTO>> findByName(@RequestParam("name") String name){
+		List<Product> list = productService.findByName(name);
+		List<ProductDTO> listDTO = list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 }

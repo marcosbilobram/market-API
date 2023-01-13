@@ -3,6 +3,7 @@ package com.market.application.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.market.application.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +46,8 @@ public class ProductService {
 		prodToAtt.setDescription(product.getDescription());
 	}
 
-	public Product fromDTO(Product product){
-		return new Product(product.getId(), product.getName(), product.getDescription(),product.getPrice());
+	public Product fromDTO(ProductDTO productDTO){
+		return new Product(productDTO.getId(), productDTO.getName(), productDTO.getDescription(),productDTO.getPrice());
 	}
 	
 }

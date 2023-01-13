@@ -3,6 +3,8 @@ package com.market.application.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.market.application.dto.CategoryDTO;
+import com.market.application.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +27,6 @@ public class CategoryService {
 	}
 	
 	public void delete(Integer id) {
-		findById(id);
 		categRepo.deleteById(id);
 	}
 	
@@ -42,6 +43,10 @@ public class CategoryService {
 	public void dataUpdate(Category categToAtt, Category category) {
 		categToAtt.setName(category.getName());
 		categToAtt.setDescription(category.getDescription());
+	}
+
+	public Category fromDTO(CategoryDTO categoryDTO){
+		return new Category(categoryDTO.getId(), categoryDTO.getName(), categoryDTO.getDescription());
 	}
 	
 }

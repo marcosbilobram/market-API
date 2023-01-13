@@ -2,7 +2,9 @@ package com.market.application.config;
 
 import java.util.Arrays;
 
+import com.market.application.entities.Category;
 import com.market.application.entities.Product;
+import com.market.application.repositories.CategoryRepository;
 import com.market.application.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,9 +24,9 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private ProductRepository productRepository;
-	/*
+
 	@Autowired
-	private CategoryRepository categoryRepository;*/
+	private CategoryRepository categoryRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -33,8 +35,11 @@ public class TestConfig implements CommandLineRunner{
 		User u2 = new User(2, "Beatriz", "beatriz@hotmail.com");
 
 		Product product = new Product(1,"Banana","Fruta", 2.0);
+
+		Category category = new Category(1, "Frutas", "Alimento");
 		
 		userRepository.saveAll(Arrays.asList(u1,u2));
 		productRepository.save(product);
+		categoryRepository.save(category);
 	}
 }

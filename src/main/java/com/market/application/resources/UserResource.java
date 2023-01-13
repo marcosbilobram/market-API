@@ -31,7 +31,6 @@ public class UserResource {
 	public ResponseEntity<UserDTO> findById(@PathVariable Integer id){
 		User user = userService.findById(id);
 		return ResponseEntity.ok().body(new UserDTO(user));
-		
 	}
 	
 	@PostMapping
@@ -55,7 +54,4 @@ public class UserResource {
 		userService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-
-
-	
 }

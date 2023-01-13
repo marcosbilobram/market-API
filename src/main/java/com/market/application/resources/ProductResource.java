@@ -45,7 +45,7 @@ public class ProductResource {
 	public ResponseEntity<Void> insert(@RequestBody Product prd) {
 		prd = product.insert(prd);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(prd.getId()).toUri();
-		return ResponseEntity.created(uri).build();	
+		return ResponseEntity.created(uri).build();
 	}
 	
 }

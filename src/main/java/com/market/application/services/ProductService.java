@@ -14,35 +14,39 @@ import com.market.application.services.exceptions.ObjectNotFoundException;
 public class ProductService {
 	
 	@Autowired
-	private ProductRepository prodctRepo;
+	private ProductRepository productRepo;
 	
 	public List<Product> findAll(){
-		return prodctRepo.findAll();
+		return productRepo.findAll();
 	}
 	
 	public Product findById(Integer id) {
-		Optional<Product> prd = prodctRepo.findById(id);
+		Optional<Product> prd = productRepo.findById(id);
 		return prd.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	
 	public void delete(Integer id) {
-		prodctRepo.deleteById(id);
+		productRepo.deleteById(id);
 	}
 	
 	public Product insert(Product product) {
-		return prodctRepo.save(product);
+		return productRepo.save(product);
 	}
 	
 	public Product update(Product product) {
 		Product prod = findById(product.getId());
 		dataUpdate(prod, product);
-		return prodctRepo.save(prod);
+		return productRepo.save(prod);
 	}
 	
 	public void dataUpdate(Product prodToAtt, Product product) {
 		prodToAtt.setName(product.getName());
 		prodToAtt.setPrice(product.getPrice());
 		prodToAtt.setDescription(product.getDescription());
+	}
+
+	public Product fromDTO(Product product){
+		return new Product(product.getId(), product.getName(), product.getDescription(),product.getPrice());
 	}
 	
 }

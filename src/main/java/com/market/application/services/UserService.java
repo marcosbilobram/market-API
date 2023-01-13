@@ -3,6 +3,7 @@ package com.market.application.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.market.application.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,10 @@ public class UserService {
 	public void dataUpdate(User userToAtt, User user) {
 		userToAtt.setName(user.getName());
 		userToAtt.setEmail(user.getEmail());
+	}
+
+	public User fromDTO(UserDTO userDTO){
+		return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
 	}
 	
 }

@@ -34,6 +34,9 @@ public class TestConfig implements CommandLineRunner{
 
 		//TODO Setar dependencias nas entidades
 		//TODO Testar crud com as dependencias
+		//TODO Criar find by category  - passa nome da categoria recebe lista de product
+		//TODO implementar classe de order (pode ter cupons)
+		//TODO implementar classe de carrinho(id do user, lista de produtos)
 		
 		User u1 = new User(1, "Marcos", "marcos@hotmail.com");
 		User u2 = new User(2, "Beatriz", "beatriz@hotmail.com");

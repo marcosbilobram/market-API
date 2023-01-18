@@ -1,12 +1,10 @@
 package com.market.application.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_mkt_product")
@@ -19,8 +17,21 @@ public class Product implements Serializable {
 	private String name;
 	private String description;
 	private Double price;
-	
-	//private List<Category> categories = new ArrayList<>();
+
+	@ManyToMany
+	@JoinTable(name = "tb_mkt_prod_categ",
+			joinColumns =
+			@JoinColumn(
+					name = "prod_id",
+					referencedColumnName = "id"
+			),
+			inverseJoinColumns = @JoinColumn(
+					name = "categ_id",
+					referencedColumnName = "id"
+			)
+
+	)
+	private List<Category> categories = new ArrayList<>();
 	
 	public Product() {
 	}
@@ -65,4 +76,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 }

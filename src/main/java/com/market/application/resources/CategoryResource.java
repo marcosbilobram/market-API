@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import com.market.application.dto.CategoryDTO;
 import com.market.application.dto.UserDTO;
+import com.market.application.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,6 +54,12 @@ public class CategoryResource {
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		categoryService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+
+	@PutMapping(value = "/{categoryId}/prds/add")
+	public ResponseEntity<Void> addProducts(@PathVariable Integer categoryId, @RequestBody List<Product> products){
+		categoryService.populateRelationAttributes(categoryId, products);
 		return ResponseEntity.noContent().build();
 	}
 }

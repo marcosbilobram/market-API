@@ -32,13 +32,14 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		//TODO Setar dependencias nas entidades
+		//TODO criar função para associar as entidades, adicionar produtos nas categorias e categorias nos produtos
 		//TODO Testar crud com as dependencias
 		//TODO Criar find by category  - passa nome da categoria recebe lista de product
 		//TODO implementar classe de order (pode ter cupons)
 		//TODO implementar classe de carrinho(id do user, lista de produtos)
+		//TODO setar função de login
 		
-		User u1 = new User(1, "Marcos", "marcos@hotmail.com");
+		/*User u1 = new User(1, "Marcos", "marcos@hotmail.com");
 		User u2 = new User(2, "Beatriz", "beatriz@hotmail.com");
 
 		Product product = new Product(1,"Banana","Fruta", 2.0);
@@ -49,6 +50,7 @@ public class TestConfig implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(u1,u2));
 		productRepository.saveAll(Arrays.asList(product, product2, product3));
-		categoryRepository.save(category);
+		categoryRepository.save(category);*/
+
 	}
 }

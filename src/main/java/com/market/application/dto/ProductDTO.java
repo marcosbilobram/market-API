@@ -1,6 +1,10 @@
 package com.market.application.dto;
 
+import com.market.application.entities.Category;
 import com.market.application.entities.Product;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDTO {
 
@@ -49,4 +53,5 @@ public class ProductDTO {
     public void setPrice(Double price) {
         this.price = price;
     }
+
 }

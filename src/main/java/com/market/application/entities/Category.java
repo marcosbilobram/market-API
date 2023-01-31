@@ -18,13 +18,12 @@ public class Category implements Serializable {
 	private String description;
 
 	@ManyToMany(mappedBy = "categories")
-	private final List<Product> products = new ArrayList<Product>();
+	private List<Product> products = new ArrayList<Product>();
 
 	public Category(){
 	}
 
 	public Category(Integer id, String name, String description) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -54,13 +53,12 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	/*public List<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(List<Product> products) {
-		this.products = products;
+		this.products.addAll(products);
 	}
-	*/
-	
+
 }

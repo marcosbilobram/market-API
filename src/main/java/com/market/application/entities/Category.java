@@ -1,5 +1,6 @@
 package com.market.application.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ public class Category implements Serializable {
 	private String name;
 	private String description;
 
-	@ManyToMany(mappedBy = "categories")
+	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	private final List<Product> products = new ArrayList<Product>();
 
 	public Category(){

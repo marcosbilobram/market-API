@@ -18,7 +18,7 @@ public class Product implements Serializable {
 	private String description;
 	private Double price;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinTable(name = "tb_mkt_prod_categ",
 			joinColumns =
 			@JoinColumn(

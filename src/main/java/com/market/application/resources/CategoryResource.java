@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.market.application.dto.CategoryDTO;
-import com.market.application.dto.UserDTO;
+import com.market.application.dto.ProductDTO;
 import com.market.application.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -67,5 +67,12 @@ public class CategoryResource {
 	public ResponseEntity<Void> addProductsById(@PathVariable Integer categoryId, @RequestBody List<Integer> productsId){
 		categoryService.populateRelationAttributesWithStoredItens(categoryId, productsId);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping(value = "/{categoryId}/products")
+	public ResponseEntity<List<ProductDTO>> findProductsInCategoryById(@PathVariable Integer categoryId){
+		List<Product> products = categoryService.findProductsById(categoryId);
+		List<ProductDTO> prodDto = products.stream().map(p -> new ProductDTO(p)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(prodDto);
 	}
 }

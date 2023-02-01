@@ -87,4 +87,9 @@ public class CategoryService {
 		}
 
 	}
+
+	public List<Product> findProductsById(Integer categoryId){
+		Category ctg = findById(categoryId);
+		return ctg.getProducts();
+	}
 }

@@ -13,9 +13,5 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
-    @Query(value = "INSERT INTO tb_mkt_prod_categ VALUES(?1,?2)",
-    nativeQuery = true)
-    void AddProductsByIdIntoAssociateTable( int productId, int categoryId);
 
-    //void AddProducts(String name,List<Product> list);
 }

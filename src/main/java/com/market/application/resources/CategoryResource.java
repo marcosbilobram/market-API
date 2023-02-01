@@ -57,9 +57,15 @@ public class CategoryResource {
 		return ResponseEntity.noContent().build();
 	}
 
-	@PutMapping(value = "/{categoryId}/prds/add")
-	public ResponseEntity<Void> addProducts(@PathVariable Integer categoryId, @RequestBody List<Product> products){
-		categoryService.populateRelationAttributes(categoryId, products);
+	@PutMapping(value = "/{categoryId}/products/new")
+	public ResponseEntity<Void> addNewProducts(@PathVariable Integer categoryId, @RequestBody List<Product> products){
+		categoryService.populateRelationAttributesWithNStoredItens(categoryId, products);
+		return ResponseEntity.noContent().build();
+	}
+
+	@PutMapping(value = "/{categoryId}/products/db")
+	public ResponseEntity<Void> addProductsById(@PathVariable Integer categoryId, @RequestBody List<Integer> productsId){
+		categoryService.populateRelationAttributesWithStoredItens(categoryId, productsId);
 		return ResponseEntity.noContent().build();
 	}
 }

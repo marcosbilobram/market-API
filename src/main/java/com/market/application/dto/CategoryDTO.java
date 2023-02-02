@@ -12,6 +12,7 @@ public class CategoryDTO {
     private String name;
     private String description;
 
+    List<Product> products = new ArrayList<>();
     public CategoryDTO(){
     }
 
@@ -19,6 +20,7 @@ public class CategoryDTO {
         id = category.getId();
         name = category.getName();
         description = category.getDescription();
+        products = category.getProducts();
     }
 
     public Integer getId() {
@@ -45,4 +47,11 @@ public class CategoryDTO {
         this.description = description;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }

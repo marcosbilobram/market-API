@@ -55,6 +55,11 @@ public class CategoryService {
 		return new Category(categoryDTO.getId(), categoryDTO.getName(), categoryDTO.getDescription());
 	}
 
+	//WAI : With associated items
+	public Category fromDTOWAI(CategoryDTO categoryDTO){
+		return new Category(categoryDTO.getId(), categoryDTO.getName(), categoryDTO.getDescription(), categoryDTO.getProducts());
+	}
+
 	public void populateRelationAttributesWithNStoredItens(Integer categoryId, List<Product> products){
 		Category ctg = findById(categoryId);
 		for(Product p : products){
@@ -88,8 +93,8 @@ public class CategoryService {
 
 	}
 
-	public List<Product> findProductsById(Integer categoryId){
+	/*public List<Product> findProductsById(Integer categoryId){
 		Category ctg = findById(categoryId);
 		return ctg.getProducts();
-	}
+	}*/
 }

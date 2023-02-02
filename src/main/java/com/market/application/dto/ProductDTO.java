@@ -11,15 +11,22 @@ public class ProductDTO {
     private Integer id;
     private String name;
     private String description;
-    private Double price;
+    private Double pricePerUnit;
+    private Integer quantity;
+
+
+    private List<Category> categories = new ArrayList<>();
 
     public ProductDTO(){}
+
 
     public ProductDTO(Product product){
         id = product.getId();
         name = product.getName();
         description = product.getDescription();
-        price = product.getPrice();
+        pricePerUnit = product.getPricePerUnit();
+        quantity = product.getQuantity();
+        categories = product.getCategories();
     }
 
     public Integer getId() {
@@ -46,12 +53,28 @@ public class ProductDTO {
         this.description = description;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getPricePerUnit() {
+        return pricePerUnit;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPricePerUnit(Double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }

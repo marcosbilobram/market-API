@@ -69,10 +69,4 @@ public class CategoryResource {
 		return ResponseEntity.noContent().build();
 	}
 
-	@GetMapping(value = "/{categoryId}/products")
-	public ResponseEntity<List<ProductDTO>> findProductsInCategoryById(@PathVariable Integer categoryId){
-		List<Product> products = categoryService.findProductsById(categoryId);
-		List<ProductDTO> prodDto = products.stream().map(p -> new ProductDTO(p)).collect(Collectors.toList());
-		return ResponseEntity.ok().body(prodDto);
-	}
 }

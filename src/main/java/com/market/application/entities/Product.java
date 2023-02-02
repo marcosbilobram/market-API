@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,7 +17,8 @@ public class Product implements Serializable {
 	private Integer id;
 	private String name;
 	private String description;
-	private Double price;
+	private Double pricePerUnit;
+	private Integer quantity = 0;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinTable(name = "tb_mkt_prod_categ",
@@ -31,16 +33,19 @@ public class Product implements Serializable {
 			)
 
 	)
+	@JsonIgnore
 	private List<Category> categories = new ArrayList<>();
 	
 	public Product() {
 	}
 
-	public Product(Integer id, String name, String description, Double price) {
+	public Product(Integer id, String name, String description, Double pricePerUnit, Integer quantity, List<Category> categories) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.price = price;
+		this.pricePerUnit = pricePerUnit;
+		this.quantity = quantity;
+		this.categories = categories;
 	}
 
 	public Integer getId() {
@@ -67,12 +72,20 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Double getPricePerUnit() {
+		return pricePerUnit;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setPricePerUnit(Double pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 	public List<Category> getCategories() {

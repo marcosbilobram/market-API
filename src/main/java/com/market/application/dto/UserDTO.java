@@ -10,6 +10,7 @@ public class UserDTO implements Serializable {
     private Integer id;
     private String name;
     private String email;
+    private String password;
 
     public UserDTO(){
     }
@@ -18,6 +19,7 @@ public class UserDTO implements Serializable {
         id = user.getId();
         name = user.getName();
         email = user.getEmail();
+        password = user.getPassword();
     }
 
     public Integer getId() {
@@ -42,5 +44,13 @@ public class UserDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

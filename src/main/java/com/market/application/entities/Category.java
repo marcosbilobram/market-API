@@ -18,8 +18,9 @@ public class Category implements Serializable {
 	private String name;
 	private String description;
 
+	@JsonIgnore
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	private final List<Product> products = new ArrayList<Product>();
+	private List<Product> products = new ArrayList<Product>();
 
 	public Category(){
 	}
@@ -28,6 +29,13 @@ public class Category implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+	}
+
+	public Category(Integer id, String name, String description, List<Product> products) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.products = products;
 	}
 
 	public Integer getId() {

@@ -43,12 +43,12 @@ public class ProductService {
 	
 	public void dataUpdate(Product prodToAtt, Product product) {
 		prodToAtt.setName(product.getName());
-		prodToAtt.setPrice(product.getPrice());
+		prodToAtt.setPricePerUnit(product.getPricePerUnit());
 		prodToAtt.setDescription(product.getDescription());
 	}
 
 	public Product fromDTO(ProductDTO productDTO){
-		return new Product(productDTO.getId(), productDTO.getName(), productDTO.getDescription(),productDTO.getPrice());
+		return new Product(productDTO.getId(), productDTO.getName(), productDTO.getDescription(),productDTO.getPricePerUnit(), productDTO.getQuantity(), productDTO.getCategories());
 	}
 
 	public List<Product> findByName(String name){

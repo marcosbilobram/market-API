@@ -32,16 +32,14 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		//TODO : criar função para associar as entidades, adicionar produtos nas categorias e categorias nos produtos
-		//TODO Testar crud com as dependencias
-		//TODO Criar find by category  - passa nome da categoria recebe lista de product
+		//TODO Testar crud com as dependencias : DOING
+		//TODO Criar find by category  - passa nome da categoria recebe lista de product : DONE
 		//TODO implementar classe de order (pode ter cupons)
 		//TODO implementar classe de carrinho(id do user, lista de produtos)
 		//TODO setar função de login
-		//TODO colocar sequences nas tabelas
 		//TODO setar constraints dos atributos @Column(length = 100)
-		//TODO arrumar get com as dependências armazenadas
-		//TODO implementar função de adição de listas
+		//TODO arrumar get com as dependências armazenadas : DONE
+		//TODO implementar função de adição de listas : THINKING
 		
 		/*User u1 = new User(1, "Marcos", "marcos@hotmail.com");
 		User u2 = new User(2, "Beatriz", "beatriz@hotmail.com");

@@ -70,5 +70,8 @@ public class ProductService {
 		}
 		return productResp;
 	}
-	
+
+	public List<Product> findByCategoryName(String categoryName){
+		return productRepo.findByCategoriesName(categoryName);
+	}
 }

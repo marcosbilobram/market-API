@@ -19,7 +19,13 @@ public class ProductDTO {
 
     public ProductDTO(){}
 
-
+    public ProductDTO(Integer id, String name,String description, Double pricePerUnit, Integer quantity){
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.pricePerUnit = pricePerUnit;
+        this.quantity = quantity;
+    }
     public ProductDTO(Product product){
         id = product.getId();
         name = product.getName();
@@ -60,7 +66,6 @@ public class ProductDTO {
     public void setPricePerUnit(Double pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
-
 
     public Integer getQuantity() {
         return quantity;

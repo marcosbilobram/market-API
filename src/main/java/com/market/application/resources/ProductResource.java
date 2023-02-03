@@ -62,4 +62,11 @@ public class ProductResource {
 		List<ProductDTO> listDTO = list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
+
+	@GetMapping(value = "/ctgs")
+	public ResponseEntity<List<ProductDTO>> findByCategoryName(@RequestParam("name") String categoryName){
+		List<Product> list = productService.findByCategoryName(categoryName);
+		List<ProductDTO> listDTO = list.stream().map(x -> new ProductDTO(x.getId(), x.getName(), x.getDescription(), x.getPricePerUnit(), x.getQuantity())).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
+	}
 }

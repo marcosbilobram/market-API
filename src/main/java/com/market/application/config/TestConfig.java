@@ -33,7 +33,6 @@ public class TestConfig implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 
 		//TODO Testar crud com as dependencias : DOING
-		//TODO Criar find by category  - passa nome da categoria recebe lista de product : DONE
 		//TODO implementar classe de order (pode ter cupons)
 		//TODO implementar classe de carrinho(id do user, lista de produtos)
 		//TODO setar função de login

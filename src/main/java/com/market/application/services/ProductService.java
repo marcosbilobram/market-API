@@ -48,13 +48,21 @@ public class ProductService {
 	}
 
 	public Product fromDTO(ProductDTO productDTO){
-		return new Product(productDTO.getId(), productDTO.getName(), productDTO.getDescription(),productDTO.getPricePerUnit(), productDTO.getQuantity(), productDTO.getCategories());
+		return new Product(
+				productDTO.getId(),
+				productDTO.getName(),
+				productDTO.getDescription(),
+				productDTO.getPricePerUnit(),
+				productDTO.getQuantity(),
+				productDTO.getCategories()
+		);
 	}
 
 	public List<Product> findByName(String name){
 		String parseNM = name.toLowerCase();
 		List<Product> productIM = productRepo.findAll();
 		List<Product> productResp = new ArrayList();
+
 		try {
 			for (Product prd: productIM) {
 				if ((prd.getName().toLowerCase()).contains(parseNM)){
@@ -71,7 +79,7 @@ public class ProductService {
 		return productResp;
 	}
 
-	public List<Product> findByCategoryName(String categoryName){
+	public List<Product> findProductsByCategoryName(String categoryName){
 		return productRepo.findByCategoriesName(categoryName);
 	}
 }

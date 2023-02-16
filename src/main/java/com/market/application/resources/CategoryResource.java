@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.market.application.dto.CategoryDTO;
-import com.market.application.dto.ProductDTO;
 import com.market.application.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -65,7 +64,7 @@ public class CategoryResource {
 
 	@PutMapping(value = "/{categoryId}/products/db")
 	public ResponseEntity<Void> addProductsById(@PathVariable Integer categoryId, @RequestBody List<Integer> productsId){
-		categoryService.populateRelationAttributesWithStoredItens(categoryId, productsId);
+		categoryService.populateRelationAttributesWithStoredItems(categoryId, productsId);
 		return ResponseEntity.noContent().build();
 	}
 

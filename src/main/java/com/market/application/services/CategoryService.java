@@ -1,9 +1,7 @@
 package com.market.application.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import com.market.application.dto.CategoryDTO;
 import com.market.application.entities.Product;
@@ -55,42 +53,32 @@ public class CategoryService {
 		return new Category(categoryDTO.getId(), categoryDTO.getName(), categoryDTO.getDescription());
 	}
 
-	//WAI : With associated items
 	public Category fromDTOWAI(CategoryDTO categoryDTO){
 		return new Category(categoryDTO.getId(), categoryDTO.getName(), categoryDTO.getDescription(), categoryDTO.getProducts());
 	}
 
 	public void populateRelationAttributesWithNStoredItens(Integer categoryId, List<Product> products){
 		Category ctg = findById(categoryId);
+
 		for(Product p : products){
 			prodRepo.save(p);
 			ctg.getProducts().add(p);
 			p.getCategories().add(ctg);
 			prodRepo.save(p);
 			categRepo.save(ctg);
-			//categRepo.AddProductsByIdIntoAssociateTable(p.getId(), ctg.getId());
 		}
-
-
-
 	}
 
-	public void populateRelationAttributesWithStoredItens(Integer categoryId, List<Integer> productsId){
+	public void populateRelationAttributesWithStoredItems(Integer categoryId, List<Integer> productsId){
 		Category ctg = findById(categoryId);
-		/*List<Product> prods;
-		for(Integer i : productsId){
 
-			prods.add(prod);
-		}*/
 		for(Integer i : productsId){
 			Product p = prodRepo.findById(i).get();
 			ctg.getProducts().add(p);
 			p.getCategories().add(ctg);
 			prodRepo.save(p);
 			categRepo.save(ctg);
-			//categRepo.AddProductsByIdIntoAssociateTable(p.getId(), ctg.getId());
 		}
-
 	}
 
 	/*public List<Product> findProductsById(Integer categoryId){
